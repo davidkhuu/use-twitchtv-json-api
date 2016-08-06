@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title= "Twitch"
+    title= "Use the Twitchtv JSON API"
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js")
     link(rel="stylesheet" href="style.css")
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
@@ -9,8 +9,11 @@ html
     h1 FreeCodeCamp: Use the Twitchtv JSON API
     .container
       .row
-        .col-md-4.col-xs-6 ONLINE
-        .col-md-4.col-xs-6 OFFLINE
-        .col-md-4.col-xs-6 SHOW ALL
+        .col-md-4.col-xs-4
+          #showonline ONLINE
+        .col-md-4.col-xs-4
+          #showoffline OFFLINE
+        .col-md-4.col-xs-4
+          #showall SHOW ALL
 
     script(src="main.js")

@@ -41,25 +41,28 @@ function buildHtml(stream) {
   $html.append(name);
 
   let $row = $('<div></div>').addClass('row');
-  $row.attr('id', 'entry');
+  //$row.attr('id', 'entry');
 
+  /*
   let $status = $('<div></div>').addClass('col-xs-1 col-md-1');
   $status.attr('id', 'status');
   $status.css('background-color', statusColour);
+  */
 
-  let $logo = $('<div></div>').addClass('col-xs-1 col-md-1');
+  let $logo = $('<div></div>').addClass('col-xs-3 col-md-3');
   let $logoImg = $('<img />');
   $logo.attr('id', 'logo');
   $logoImg.attr('src', channelLogo);
   $logoImg.attr('id', 'stream-logo');
-  $logoImg.attr('width', '100%)');
+  $logoImg.attr('width', '50%)');
+  //$logoImg.attr('height', '40px');
   $logo.append($logoImg);
 
-  let $info = $('<div></div>').addClass('col-xs-10 col-md-10');
+  let $info = $('<div></div>').addClass('col-xs-9 col-md-9');
   $info.attr('id', 'info');
   $info.append('<p>' + channelName + ' is playing ' + currentGame + '</p>');
 
-  $row.append([$status, $logo, $info]);
+  $row.append([$logo, $info]);
 
   console.log(name);
   $('.container').append($row);
