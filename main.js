@@ -3,38 +3,41 @@
 let channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 
 let baseUrl = 'https://wind-bow.gomix.me/twitch-api';
-let endUrl = '?callback=?';
-// make api call
-// receive JSON
-// parse JSON
-// for it for all channels in list
+let usersPath = '/users/';
+let channelsPath = '/channels/';
+let streamsPath = '/streams/';
 
 function generateRow(streamer) {
-  var url = baseUrl + streamer + endUrl;
+  let url = baseUrl + channelsPath + streamer;
+  let streamsUrl = baseUrl + streamsPath + streamer;
 
-  $.getJSON(url, function(data) {
-    console.log(data);
+  let streamerData = {};
+  $.getJSON(url, function(channelResp) {
+    streamerData.channel = channelResp;
+    $.getJSON(streamsUrl, function(streamResp) {
+      streamerData.stream = streamResp.stream;
+    });
 
-    return buildHtml(data);
+    return buildHtml(streamerData);
   });
 }
 
 function buildHtml(stream) {
-  var channelName = stream.display_name,
-      currentGame = stream.game,
-      channelURL = stream.url,
-      channelLogo = stream.logo,
-      streamTitle = stream.status,
-      statusColour,
-      status;
+  let channelName = stream.channel.display_name;
+  let currentGame = stream.channel.game;
+  let channelURL = stream.channel.url;
+  let channelLogo = stream.channel.logo;
+  let streamTitle = stream.channel.status;
+  let statusColour;
+  let status;
 
   // channel online
-  if (stream.mature) {
+  if (stream.stream) {
     status = 'online';
     statusColour = '#0a0';
   } else {
     status = 'offline';
-    statusColour = '#a00'
+    statusColour = '#a00';
   }
 
   let $html = $('<div></div>');
@@ -69,11 +72,11 @@ function buildHtml(stream) {
 }
 
 $(document).ready(function() {
+  generateRow('godazed');
+  generateRow('dreamhackcs');
   generateRow('summit1g');
   generateRow('steel_tv');
   generateRow('qosmonaut');
-  generateRow('phantoml0rd');
-  generateRow('shroud');
   generateRow('hutch');
 });
 
