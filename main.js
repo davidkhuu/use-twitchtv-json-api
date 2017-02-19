@@ -2,7 +2,7 @@
 
 let channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 
-let baseUrl = 'https://api.twitch.tv/kraken/channels/';
+let baseUrl = 'https://wind-bow.gomix.me/twitch-api';
 let endUrl = '?callback=?';
 // make api call
 // receive JSON

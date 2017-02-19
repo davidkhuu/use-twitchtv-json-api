@@ -19,3 +19,6 @@ Build a [CodePen.io](https://codepen.io/) app that is functionally similar to [t
 * See an example call to Twitch.tv's JSON API [here](https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Front-End-Project-Use-Twitchtv-JSON-API).
 * The relevant documentation about this API call is [here](https://github.com/justintv/Twitch-API/blob/master/v3_resources/streams.md#get-streamschannel).
 * Here's an array of the Twitch.tv usernames of people who regularly stream: `["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]`
+
+## Update
+Due to a change in conditions on API usage explained [here](https://blog.twitch.tv/client-id-required-for-kraken-api-calls-afbb8e95f843#.f8hipkht1) Twitch.tv now requires an API key, but we've built a workaround. Use https://wind-bow.gomix.me/twitch-api instead of twitch's API base URL (i.e. https://api.twitch.tv/kraken) and you'll still be able to get account information, without needing to sign up for an API key.
